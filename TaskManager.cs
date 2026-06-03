@@ -28,14 +28,26 @@ public class Scanner : IScanner
 
 public class PrintScanner : IPrinter, IScanner
 {
+    
+    private readonly IPrinter _printer;
+    private readonly IScanner _scanner;
+
+    public PrintScanner(IPrinter printer, IScanner scanner)
+    {
+        _printer = printer;
+        _scanner = scanner;
+    }
+
     public void Print()
     {
         Console.WriteLine("PrintScanner: Printing document...");
+        printer.Print();
     }
 
     public void Scan()
     {
         Console.WriteLine("PrintScanner: Scanning document...");
+        scanner.Scan();
     }
 }
 
@@ -60,7 +72,7 @@ public class Program
     {
         var printer = new Printer();
         var scanner = new Scanner();
-        var printScanner = new PrintScanner();
+        var printScanner = new PrintScanner(printer,scanner);
 
         var scheduler = new TaskManager();
 
