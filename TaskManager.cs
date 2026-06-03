@@ -26,7 +26,7 @@ public class Scanner : IScanner
     }
 }
 
-public class PrintScanner : IPrinter, IScanner
+public class PrintScanner 
 {
     
     private readonly IPrinter _printer;
