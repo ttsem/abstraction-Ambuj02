@@ -41,13 +41,13 @@ public class PrintScanner : IPrinter, IScanner
     public void Print()
     {
         Console.WriteLine("PrintScanner: Printing document...");
-        printer.Print();
+        _printer.Print();
     }
 
     public void Scan()
     {
         Console.WriteLine("PrintScanner: Scanning document...");
-        scanner.Scan();
+        _scanner.Scan();
     }
 }
 
